@@ -36,7 +36,8 @@ public class EmployeeService {
 
     @Transactional
     public Employee save(Employee employee){
-        return employeeRepository.save(employee);
+//        return employeeRepository.save(employee);
+        return employeeCrudRepository.save(employee);
     }
 
     @Transactional

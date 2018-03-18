@@ -9,36 +9,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/employees")
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
 
-    @RequestMapping(value = "/employees")
+    @GetMapping
     public List<Employee> listAllEmployee(){
 
         System.out.println("=== Get All Employee ===");
         return employeeService.listAll();
     }
 
-    @RequestMapping(value = "/employees/crud")
+    @GetMapping("/crud")
     public List<Employee> listAllEmployeeCrud(){
         return employeeService.listAllCrud();
     }
 
-    @RequestMapping(value = "/employees/native")
+    @GetMapping("/native")
     public List<DataDTO> nativeQuery(){
         return employeeService.findAllByNative();
     }
 
-    @RequestMapping(value = "/employees/{id}")
+    @GetMapping("/{id}")
     public Employee getEmployee(@PathVariable Integer id){
 
         System.out.println("== Get Employee "+id+" ==");
         return employeeService.get(id);
     }
 
-    @RequestMapping(value = "/employees",method = RequestMethod.POST)
+    @PostMapping
     public Employee createEmployee(@RequestBody Employee employeeParam){
         System.out.println("== Create Employee ==");
         System.out.println(employeeParam.getFirstName() + " "+employeeParam.getLastName());
@@ -48,19 +49,19 @@ public class EmployeeController {
         return employeeSaved;
     }
 
-    @RequestMapping(value = "/employees/{id}",method = RequestMethod.PUT)
+    @PutMapping("/{id}")
     public Employee updateEmployee(@RequestBody Employee employeeParam,@PathVariable Integer id){
         System.out.println("== Update Employee "+id+" ==");
 
         return employeeService.update(employeeParam,id);
     }
 
-    @RequestMapping(value = "/employees/{id}",method = RequestMethod.DELETE)
+    @DeleteMapping("/{id}")
     public void deleteEmployee(@PathVariable Integer id){
         employeeService.delete(id);
     }
 
-    @RequestMapping(value = "/employees/lastName/{lastName}")
+    @GetMapping("/lastName/{lastName}")
     public List<Employee> getEmployeesByLastName(@PathVariable String lastName){
         System.out.println("Get employees by "+lastName);
         return employeeService.findEmployeesByLastName(lastName);
