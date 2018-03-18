@@ -36,4 +36,13 @@ public class EmployeeRepository  {
     public void delete(Employee employee){
         entityManager.remove(employee);
     }
+
+    public List<Employee> findByLastName(String  lastName) {
+        Query query = entityManager.createQuery("from Employee e where e.lastName = :LAST_NAME");
+        query.setParameter("LAST_NAME", lastName);
+        List resultList = query.getResultList();
+
+        //return resultList.isEmpty()? null : (Employee) resultList.get(0);
+        return resultList;
+    }
 }

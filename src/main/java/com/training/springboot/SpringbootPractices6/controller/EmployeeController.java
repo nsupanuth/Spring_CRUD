@@ -46,7 +46,13 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employees/{id}",method = RequestMethod.DELETE)
     public void deleteEmployee(@PathVariable Integer id){
-       employeeService.delete(id);
+        employeeService.delete(id);
+    }
+
+    @RequestMapping(value = "/employees/lastName/{lastName}")
+    public List<Employee> getEmployeesByLastName(@PathVariable String lastName){
+        System.out.println("Get employees by "+lastName);
+        return employeeService.findEmployeesByLastName(lastName);
     }
 
 

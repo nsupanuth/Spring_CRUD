@@ -43,5 +43,9 @@ public class EmployeeService {
         employeeRepository.delete(entity);
     }
 
+    public List<Employee> findEmployeesByLastName(String lastname){
+        return employeeRepository.findByLastName(lastname);
+    }
+
 
 }
