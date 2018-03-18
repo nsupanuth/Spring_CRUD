@@ -22,6 +22,23 @@ public class EmployeeController {
         return null;
     }
 
+    @RequestMapping(value = "/employees",method = RequestMethod.POST)
+    public Employee postEmployee(){
+        System.out.println("== Create Employee ==");
+        return null;
+    }
+
+    @RequestMapping(value = "/employees/1",method = RequestMethod.PUT)
+    public Employee updateEmployee(){
+        System.out.println("== Update Employee ==");
+        return null;
+    }
+
+    @RequestMapping(value = "/employees/1",method = RequestMethod.DELETE)
+    public Employee deleteEmployee(){
+        System.out.println("== Delete Employee ==");
+        return null;
+    }
 
 
 
