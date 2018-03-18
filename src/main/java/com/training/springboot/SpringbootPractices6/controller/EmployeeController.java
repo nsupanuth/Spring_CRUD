@@ -21,6 +21,11 @@ public class EmployeeController {
         return employeeService.listAll();
     }
 
+    @RequestMapping(value = "/employees/crud")
+    public List<Employee> listAllEmployeeCrud(){
+        return employeeService.listAllCrud();
+    }
+
     @RequestMapping(value = "/employees/native")
     public List<DataDTO> nativeQuery(){
         return employeeService.findAllByNative();

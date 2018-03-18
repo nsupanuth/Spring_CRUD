@@ -2,6 +2,7 @@ package com.training.springboot.SpringbootPractices6.service;
 
 import com.training.springboot.SpringbootPractices6.domain.Employee;
 import com.training.springboot.SpringbootPractices6.dto.DataDTO;
+import com.training.springboot.SpringbootPractices6.repository.EmployeeCrudRepository;
 import com.training.springboot.SpringbootPractices6.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,21 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    @Autowired
+    private EmployeeCrudRepository employeeCrudRepository;
+
     public List<Employee> listAll(){
         return employeeRepository.findAll();
     }
 
+    /* CRUD Repository(Spring Data JPA) */
+    public List<Employee> listAllCrud(){
+        return employeeCrudRepository.findAll();
+    }
+
     public Employee get(Integer id){
-        return employeeRepository.findById(id);
+//        return employeeRepository.findById(id);
+        return employeeCrudRepository.findOne(id);
     }
 
     @Transactional
