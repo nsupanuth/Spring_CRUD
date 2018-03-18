@@ -47,5 +47,9 @@ public class EmployeeService {
         return employeeRepository.findByLastName(lastname);
     }
 
+    public List<Employee> findAllByNative(){
+        return employeeRepository.findAllByNativeQuery();
+    }
+
 
 }

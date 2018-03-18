@@ -20,6 +20,11 @@ public class EmployeeController {
         return employeeService.listAll();
     }
 
+    @RequestMapping(value = "/employees/native")
+    public List<Employee> nativeQuery(){
+        return employeeService.findAllByNative();
+    }
+
     @RequestMapping(value = "/employees/{id}")
     public Employee getEmployee(@PathVariable Integer id){
 

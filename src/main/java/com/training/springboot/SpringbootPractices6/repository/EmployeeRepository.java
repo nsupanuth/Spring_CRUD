@@ -45,4 +45,9 @@ public class EmployeeRepository  {
         //return resultList.isEmpty()? null : (Employee) resultList.get(0);
         return resultList;
     }
+
+    public List<Employee> findAllByNativeQuery() {
+        Query nativeQuery = entityManager.createNativeQuery("select id, first_name, last_name from employee", Employee.class);
+        return nativeQuery.getResultList();
+    }
 }
