@@ -30,21 +30,23 @@ public class EmployeeController {
     @RequestMapping(value = "/employees",method = RequestMethod.POST)
     public Employee createEmployee(@RequestBody Employee employeeParam){
         System.out.println("== Create Employee ==");
-
         System.out.println(employeeParam.getFirstName() + " "+employeeParam.getLastName());
-        return null;
+
+        Employee employeeSaved = employeeService.save(employeeParam);
+
+        return employeeSaved;
     }
 
     @RequestMapping(value = "/employees/{id}",method = RequestMethod.PUT)
-    public Employee updateEmployee(@PathVariable Integer id){
+    public Employee updateEmployee(@RequestBody Employee employeeParam,@PathVariable Integer id){
         System.out.println("== Update Employee "+id+" ==");
-        return null;
+
+        return employeeService.update(employeeParam,id);
     }
 
     @RequestMapping(value = "/employees/{id}",method = RequestMethod.DELETE)
-    public Employee deleteEmployee(@PathVariable Integer id){
-        System.out.println("== Delete Employee "+id+" ==");
-        return null;
+    public void deleteEmployee(@PathVariable Integer id){
+       employeeService.delete(id);
     }
 
 

@@ -26,5 +26,14 @@ public class EmployeeRepository  {
         return entityManager.find(Employee.class, id);
     }
 
+    @Transactional
+    public Employee save(Employee employee){
+        entityManager.persist(employee);
+        return employee;
+    }
 
+    @Transactional
+    public void delete(Employee employee){
+        entityManager.remove(employee);
+    }
 }
