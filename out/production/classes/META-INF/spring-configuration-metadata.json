@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.training.springboot.SpringbootPractices6.config.HelloConfig",
+      "name": "hello",
+      "type": "com.training.springboot.SpringbootPractices6.config.HelloConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.training.springboot.SpringbootPractices6.config.HelloConfig",
+      "name": "hello.message",
+      "type": "java.lang.String"
+    }
+  ]
+}
