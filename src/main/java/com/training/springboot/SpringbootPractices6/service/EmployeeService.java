@@ -1,6 +1,7 @@
 package com.training.springboot.SpringbootPractices6.service;
 
 import com.training.springboot.SpringbootPractices6.domain.Employee;
+import com.training.springboot.SpringbootPractices6.dto.DataDTO;
 import com.training.springboot.SpringbootPractices6.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,7 +48,7 @@ public class EmployeeService {
         return employeeRepository.findByLastName(lastname);
     }
 
-    public List<Employee> findAllByNative(){
+    public List<DataDTO> findAllByNative(){
         return employeeRepository.findAllByNativeQuery();
     }
 

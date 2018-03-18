@@ -2,6 +2,7 @@ package com.training.springboot.SpringbootPractices6.repository;
 
 
 import com.training.springboot.SpringbootPractices6.domain.Employee;
+import com.training.springboot.SpringbootPractices6.dto.DataDTO;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,8 +47,8 @@ public class EmployeeRepository  {
         return resultList;
     }
 
-    public List<Employee> findAllByNativeQuery() {
-        Query nativeQuery = entityManager.createNativeQuery("select id, first_name, last_name from employee", Employee.class);
+    public List<DataDTO> findAllByNativeQuery() {
+        Query nativeQuery = entityManager.createNativeQuery("select id, first_name, last_name from employee", DataDTO.class);
         return nativeQuery.getResultList();
     }
 }

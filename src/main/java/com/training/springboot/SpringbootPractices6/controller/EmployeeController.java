@@ -1,6 +1,7 @@
 package com.training.springboot.SpringbootPractices6.controller;
 
 import com.training.springboot.SpringbootPractices6.domain.Employee;
+import com.training.springboot.SpringbootPractices6.dto.DataDTO;
 import com.training.springboot.SpringbootPractices6.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/employees/native")
-    public List<Employee> nativeQuery(){
+    public List<DataDTO> nativeQuery(){
         return employeeService.findAllByNative();
     }
 
